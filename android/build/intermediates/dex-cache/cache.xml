@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="E:\ValueEducation\android\app\build\intermediates\exploded-aar\ValueEducation\react-native-orientation-listener\unspecified\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="803d5e2c7db9732e955462e40894211b44e2c343">
+        <dex dex="E:\ValueEducation\android\app\build\intermediates\pre-dexed\debug\classes-1ba3f8b272af4c1a5238faab2a813cc50ffdff28.jar" />
+    </item>
+
+</items>
