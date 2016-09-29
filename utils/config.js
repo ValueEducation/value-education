@@ -4,6 +4,9 @@ const config = {
     token: 'Account/RegisterUser',
     login: 'Account/LoginUser',
     profileInfo:'ProfileInfo/FetchProfileInfo',
+    updateProfile:'ProfileInfo/UpdateProfileInfo',
+    getContent:'Content/FetchContent',
+    sendotp:'SMS/SendSMS',
   },
 }
 export default function getServiceUrl(endpointKey) {

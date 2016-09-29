@@ -1,4 +1,3 @@
-"use strict";
 import _ from "lodash";
 import React, {Component, PropTypes} from "react";
 import {Animated, PanResponder, Slider, StyleSheet, Text, TouchableOpacity, View} from "react-native";

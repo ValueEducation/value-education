@@ -1,6 +1,7 @@
 package com.valueeducation;
 
 import com.facebook.react.ReactActivity;
+import com.idehub.GoogleAnalyticsBridge.GoogleAnalyticsBridgePackage;
 import com.walmartreact.ReactOrientationListener.ReactOrientationListener;
 import com.imagepicker.ImagePickerPackage;
 import com.brentvatne.react.ReactVideoPackage;

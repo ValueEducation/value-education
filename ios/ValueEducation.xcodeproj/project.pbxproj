@@ -35,6 +35,7 @@
 		F2CF67AB99C547F2B481F7B4 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7936EE64E3354A71BEDCE5BF /* libRNImagePicker.a */; };
 		8A01CAB5306E4F80A7EE5EAF /* libRCTOrientation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BED0E14C79435684D2D64F /* libRCTOrientation.a */; };
 		327DBFB2B6A64DC19B4A3E36 /* libRCTOrientationListener.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E6EE14581D149619F69C2E6 /* libRCTOrientationListener.a */; };
+		03EAC055176D41C6840555B9 /* libRCTGoogleAnalyticsBridge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2ACC7EE80414865BA7087FA /* libRCTGoogleAnalyticsBridge.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +158,8 @@
 		10BED0E14C79435684D2D64F /* libRCTOrientation.a */ = {isa = PBXFileReference; name = "libRCTOrientation.a"; path = "libRCTOrientation.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		2971145FA1D04B70BEDED402 /* RCTOrientationListener.xcodeproj */ = {isa = PBXFileReference; name = "RCTOrientationListener.xcodeproj"; path = "../node_modules/react-native-orientation-listener/RCTOrientationListener.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		5E6EE14581D149619F69C2E6 /* libRCTOrientationListener.a */ = {isa = PBXFileReference; name = "libRCTOrientationListener.a"; path = "libRCTOrientationListener.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		D2B7A3F952054A2987C51271 /* RCTGoogleAnalyticsBridge.xcodeproj */ = {isa = PBXFileReference; name = "RCTGoogleAnalyticsBridge.xcodeproj"; path = "../node_modules/react-native-google-analytics-bridge/ios/RCTGoogleAnalyticsBridge/RCTGoogleAnalyticsBridge.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		C2ACC7EE80414865BA7087FA /* libRCTGoogleAnalyticsBridge.a */ = {isa = PBXFileReference; name = "libRCTGoogleAnalyticsBridge.a"; path = "libRCTGoogleAnalyticsBridge.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +190,7 @@
 				F2CF67AB99C547F2B481F7B4 /* libRNImagePicker.a in Frameworks */,
 				8A01CAB5306E4F80A7EE5EAF /* libRCTOrientation.a in Frameworks */,
 				327DBFB2B6A64DC19B4A3E36 /* libRCTOrientationListener.a in Frameworks */,
+				03EAC055176D41C6840555B9 /* libRCTGoogleAnalyticsBridge.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +318,7 @@
 				38B1ED30964A4058BA537BA9 /* RNImagePicker.xcodeproj */,
 				F3B5B65A25734867A85C4A48 /* RCTOrientation.xcodeproj */,
 				2971145FA1D04B70BEDED402 /* RCTOrientationListener.xcodeproj */,
+				D2B7A3F952054A2987C51271 /* RCTGoogleAnalyticsBridge.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -658,6 +663,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
 			name = Debug;
@@ -674,6 +680,7 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ValueEducation.app/ValueEducation";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -697,6 +704,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-image-picker\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation\iOS\RCTOrientation/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation-listener",
+					"$(SRCROOT)\..\node_modules\react-native-google-analytics-bridge\ios\RCTGoogleAnalyticsBridge/**",
 				);
 				INFOPLIST_FILE = "ValueEducation/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -722,6 +730,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-image-picker\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation\iOS\RCTOrientation/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation-listener",
+					"$(SRCROOT)\..\node_modules\react-native-google-analytics-bridge\ios\RCTGoogleAnalyticsBridge/**",
 				);
 				INFOPLIST_FILE = "ValueEducation/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -777,6 +786,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-image-picker\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation\iOS\RCTOrientation/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation-listener",
+					"$(SRCROOT)\..\node_modules\react-native-google-analytics-bridge\ios\RCTGoogleAnalyticsBridge/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -822,6 +832,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-image-picker\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation\iOS\RCTOrientation/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation-listener",
+					"$(SRCROOT)\..\node_modules\react-native-google-analytics-bridge\ios\RCTGoogleAnalyticsBridge/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;

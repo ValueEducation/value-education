@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-'use strict';
-
 import React, { Component } from 'react'
 import {
   Text,
@@ -13,12 +6,17 @@ import {
   TouchableHighlight,
   AsyncStorage,
 } from 'react-native'
-import ImagePicker from 'react-native-image-picker'
 import { Actions } from 'react-native-router-flux'
 import Icon from 'react-native-vector-icons/FontAwesome'
+import GoogleAnalytics from 'react-native-google-analytics-bridge'
+
 import styles from '../utils/styles'
 import profileIcon from '../images/default.gif'
 import http from '../utils/http'
+
+GoogleAnalytics.setTrackerId('UA-81365729-4')
+GoogleAnalytics.setDispatchInterval(10)
+GoogleAnalytics.trackScreenView('Profile')
 
 export default class Profile extends Component {
   constructor(props) {
@@ -27,99 +25,67 @@ export default class Profile extends Component {
       name: '',
       age: '',
       source: profileIcon,
+      dob: '',
+      base64: '',
     }
   }
-  editProfile = () => {
-    Actions.editprofile()
-  }
-
   componentDidMount = () => {
     AsyncStorage.multiGet(['token', 'userId'])
     .then((values) => {
-      //  alert(JSON.stringify(values))
       if (values[0][1] != null) {
-        http('profileInfo',{'userId':values[1][1]},'POST',values[0][1])
+        http('profileInfo', { 'userId': values[1][1] }, 'POST', values[0][1])
         .then((response) => {
-        alert(JSON.stringify(response))
-        if(response.status){
-          this.setState({name:response.name})
-          const date2 = new Date()
-          const date1 = new Date(response.birthDate)
-          const timeDiff =  Math.abs(date2.getTime() - date1.getTime())
-          const age = Math.ceil(timeDiff / (1000 * 3600 * 24 * 365))
-          this.setState({name:response.name,age})
-
-        }
-      })
-      .catch((error) => {
-        alert(error);
-      })
-    }})
-  }
-  openGallery = () => {
-    const options = {
-      title: 'Choose your profile picture',
-      takePhotoButtonTitle: 'Take Photo',
-      chooseFromLibraryButtonTitle: 'Choose from Library',
-      quality: 1,
-      maxWidth: 600,
-      maxHeight: 300,
-      allowsEditing: true,
-      storageOptions: {
-        skipBackup: true,
-      },
-    }
-    ImagePicker.showImagePicker(options, (response) => {
-      if (response.didCancel) {
-        alert('User cancelled photo picker')
-      } else if (response.error) {
-        alert('ImagePicker Error: ', response.error)
-      } else if (response.customButton) {
-        alert('User tapped custom button: ', response.customButton)
-      } else {
-        let source3
-        source3 = { uri: 'data:image/jpeg;base64,' + response.data, isStatic: true }
-        this.setState({
-          source: source3,
+          if (response.status) {
+            const date2 = new Date()
+            const date1 = new Date(response.birthDate)
+            const timeDiff = Math.abs(date2.getTime() - date1.getTime())
+            const age = Math.ceil(timeDiff / (1000 * 3600 * 24 * 365))
+            const source = { uri: 'data:image/jpeg;base64,' + response.profileImage, isStatic: true }
+            this.setState({
+              name: response.name,
+              base64: response.profileImage,
+              dob: response.birthDate,
+              age,
+              source,
+            })
+            AsyncStorage.setItem('name', response.name)
+            AsyncStorage.setItem('dob', response.birthDate)
+            AsyncStorage.setItem('email', '')
+            AsyncStorage.setItem('base64', response.profileImage)
+          }
         })
-      }
-    })
+      .catch((error) => {
+        alert(error)
+      })
+      } })
   }
-    /* ImagePicker.launchImageLibrary(options, (response)  => {
-      // Same code as in above section!
-      alert(response)
-    });
-    ImagePicker.launchCamera(options, (response)  => {
-      // Same code as in above section!
-    alert(response);
-    }); */
+  editProfile = () => {
+    Actions.editprofile({ name: this.state.name, base64: this.state.base64, date: this.state.dob })
+  }
   render() {
     return (
-      <View style={[styles.container, { padding: 15 }]}>
-      <TouchableHighlight underlayColor="transparent" onPress={this.editProfile} style={{alignSelf:'flex-end'}}>
-            <Icon name="edit" color="green" size={30} />
+     // <Image source={this.state.source} style={styles.container}>
+      <View style={styles.container}>
+        <TouchableHighlight underlayColor="transparent" onPress={this.editProfile} style={{ alignSelf: 'flex-end' }}>
+          <Icon name="edit" color="rgb(17, 150, 182)" size={30} />
         </TouchableHighlight>
-        <View style={{alignSelf:'center'}}>
-          <TouchableHighlight
-            underlayColor="transparent"
-            onPress={this.openGallery}
-          >
-            <Image
-              source={this.state.source}
-              style={{
-                height: 70,
-                width: 70,
-                borderColor: 'green',
-                borderWidth: 0.5,
-                borderRadius: 35,
-              }}
-            />
-          </TouchableHighlight>
-          <Text style={[styles.textColor,{marginTop:30}]}>Name: {this.state.name}</Text>
-          <Text style={[styles.textColor,{marginTop:5}]}>email: test@ggktech.com</Text>
-          <Text style={[styles.textColor,{marginTop:5}]}>Age: {this.state.age}</Text>         
+        <View style={{ alignSelf: 'center' }}>
+          <Image
+            source={this.state.source}
+            style={{
+              height: 70,
+              width: 70,
+              borderColor: 'rgb(17, 150, 182)',
+              borderWidth: 0.5,
+              borderRadius: 35,
+            }}
+          />
+          <Text style={[styles.textColor, { marginTop: 30 }]}>Name: {this.state.name}</Text>
+          <Text style={[styles.textColor, { marginTop: 5 }]}>email: </Text>
+          <Text style={[styles.textColor, { marginTop: 5 }]}>Age: {this.state.age}</Text>
         </View>
       </View>
+  //  </Image>
     )
   }
 }

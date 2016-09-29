@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-'use strict';
-
 import React, { Component } from 'react'
 import {
   AppRegistry,
@@ -17,7 +10,7 @@ import {
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { Scene, Router } from 'react-native-router-flux'
-var Orientation = require('react-native-orientation-listener');
+var Orientation = require('react-native-orientation-listener')
 import Welcome from './components/welcome'
 import Login from './components/login'
 import Register from './components/register'
@@ -32,11 +25,23 @@ import ContentType from './components/contentType'
 import Aboutus from './components/aboutus'
 import styles from './utils/styles'
 import EditProfile from './components/editProfile'
+import VerifyPhoneNum from './components/verifyPhoneNum'
+import CodeVerify from './components/codeVerify'
+import ProfileInfo from './components/profileInfo'
 
 console.disableYellowBox = true
+
 BackAndroid.addEventListener('hardwareBackPress', function() {
   return false
 });
+
+class TabIcon extends Component {
+  render(){
+    return (
+      <Text>{this.props.title}</Text>
+      );
+    }
+  }
 
 class ValueEducation extends Component {
   constructor(props) {
@@ -80,7 +85,7 @@ class ValueEducation extends Component {
       .catch((error) => {
       });*/
     AsyncStorage.getItem('token')
-    .then( (value) =>{
+    .then( (value) => {
         if (value != null){
           this.setState({
             logged: true,
@@ -134,39 +139,44 @@ class ValueEducation extends Component {
        {/* <Schema name="modal" sceneConfig={Navigator.SceneConfigs.FloatFromBottom}/>
         <Schema name="default" sceneConfig={Navigator.SceneConfigs.FloatFromRight}/>*/}
         <Scene key="welcome" component={Welcome} title="Welcome" hideNavBar initial={!this.state.logged} />
-        <Scene key="login" component={Login} title="Login" hideNavBar={false} />
-        <Scene key="register" component={Register} title="Register" hideNavBar={false} />
+        {/*<Scene key="login" component={Login} title="Login" hideNavBar={false} />
+        <Scene key="register" component={Register} title="Register" hideNavBar={false} />*/}
+        <Scene key="verifyphone" component={VerifyPhoneNum} title="Verify your phone number" hideNavBar={false}/>
+        <Scene key="codeverify" component={CodeVerify} title="Verification Code" hideNavBar={false} />
+        <Scene key="profileinfo" component={ProfileInfo} title="Profile info" hideNavBar={false} type="reset"/>
+
         <Scene key="main" initial={this.state.logged}>
-          <Scene
-            key="home"
-            component={Home}
-            title="Home"
-            hideNavBar
-            type="reset"
-            renderRightButton={this.rightButton}
-            renderLeftButton={this.leftButton}
-          />
+         {/* <Scene key="root" tabs={true}>*/}
+            <Scene
+              key="home"
+              component={Home}
+              title="Home"
+              hideNavBar
+              type="reset"
+              renderRightButton={this.rightButton}
+              renderLeftButton={this.leftButton}
+              icon={TabIcon}
+            />
+         {/* </Scene>*/}
           <Scene
             key="profile"
             component={Profile}
             title="Profile"
             hideNavBar={false}
-            direction="vertical"
           />
           <Scene
             key="editprofile"
             component={EditProfile}
             title="Edit Profile"
             hideNavBar={false}
-            direction="vertical"
           />         
           <Scene key="settings" component={Settings} title="Settings" hideNavBar={false} />
-          <Scene key="notifications" component={Notifications} title="Notifications" hideNavBar={false} direction="vertical" />
-          <Scene key="account" component={Account} title="Account" hideNavBar={false} direction="vertical" />
-          <Scene key="frequency" component={Frequency} title="Frequency" hideNavBar={false} direction="vertical" />
-          <Scene key="contenttype" component={ContentType} title="ContentType" hideNavBar={false} direction="vertical" />
-          <Scene key="aboutus" component={Aboutus} title="About Us" hideNavBar={false} direction="vertical" />          
-          <Scene key="search" component={Search} title="Search" hideNavBar={false} direction="vertical" />
+          <Scene key="notifications" component={Notifications} title="Notifications" hideNavBar={false} />
+          <Scene key="account" component={Account} title="Account" hideNavBar={false} />
+          <Scene key="frequency" component={Frequency} title="Frequency" hideNavBar={false} />
+          <Scene key="contenttype" component={ContentType} title="Content type" hideNavBar={false} />
+          <Scene key="aboutus" component={Aboutus} title="About us" hideNavBar={false} />          
+          <Scene key="search" component={Search} title="Search" hideNavBar={false} />
         </Scene>
       </Router>
     )

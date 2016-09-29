@@ -3,7 +3,7 @@ package com.valueeducation;
 import android.app.Application;
 import android.util.Log;
 import com.walmartreact.ReactOrientationListener.ReactOrientationListener;
-
+import com.idehub.GoogleAnalyticsBridge.GoogleAnalyticsBridgePackage;
 import com.imagepicker.ImagePickerPackage;
 import com.brentvatne.react.ReactVideoPackage;
 import com.facebook.react.ReactApplication;
@@ -25,11 +25,12 @@ public class MainApplication extends Application implements ReactApplication {
 
     @Override
     protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(
+      return Arrays.<ReactPackage>asList(        
           new MainReactPackage(),
           new ReactVideoPackage(),
           new ImagePickerPackage(),
-          new ReactOrientationListener()
+          new ReactOrientationListener(),
+          new GoogleAnalyticsBridgePackage()
       );
     }
   };

@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-'use strict';
-
 import React, { Component } from 'react'
 import {
   Text,
@@ -75,8 +68,7 @@ export default class Register extends Component {
   }
   phoneNumOnChange = (event) => {
     const phoneNumber = event.nativeEvent.text
-    alert(phoneNumber)
-    const phoneError = validatePassword(phoneNumber)
+    const phoneError = validatePhoneNumber(phoneNumber)
     this.setState({ phoneNumber, phoneError })
   }
   focusNextField = (nextField) => {
@@ -114,6 +106,7 @@ export default class Register extends Component {
           onChange={this.phoneNumOnChange}
           placeholder="phone number"
           value={this.state.phoneNumber}
+          keyboardType="numeric"
           maxLength={10}
           autoFocus={true}
           returnKeyType="next"
@@ -132,7 +125,7 @@ export default class Register extends Component {
         <DatePicker
           style={{ width }}
           date={this.state.date}
-          mode="datetime"
+          mode="date"
           placeholder="Date of Birth"
           confirmBtnText="OK"
           cancelBtnText="Cancel"
