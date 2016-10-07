@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-'use strict';
-
 import React, { Component } from 'react'
 import {
   Text,
@@ -45,14 +38,14 @@ export default class Search extends Component {
         keyboardType="email-address"
         onBlur={this.emailOnBlur}
       />
-      <TouchableHighlight underlayColor='transparent' onPress={this.Search} style={styles.loginbutton}> 
+      <TouchableHighlight underlayColor='transparent' onPress={this.Search} style={[styles.loginbutton,{alignSelf:'center'}]}> 
         <Text style={styles.signin}>Search</Text>
       </TouchableHighlight>
 
       <ListView
           dataSource={this.state.dataSource}
           renderRow={(rowData) =>
-            <View style={{borderBottomColor:'green',borderBottomWidth:1,padding:5,flex:1,flexDirection:'row'}}>
+            <View style={{borderBottomColor:'rgb(17, 150, 182)',borderBottomWidth:1,padding:5,flex:1,flexDirection:'row'}}>
               <Text style={styles.textColor}>{rowData}</Text>
             </View>
           }

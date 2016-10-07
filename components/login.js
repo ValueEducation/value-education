@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-'use strict';
-
 import React, { Component } from 'react'
 import {
   Text,
@@ -40,11 +33,10 @@ export default class Login extends Component {
       }
       http('login',data)
       .then((response) => {
-      //  alert(JSON.stringify(response))
         if(response.token && response.status){
-          Actions.main()
           AsyncStorage.setItem('token', response.token)
-          AsyncStorage.setItem('userId', response.userId)         
+          AsyncStorage.setItem('userId', response.userId)
+          Actions.main()         
         }
       })
       .catch((error) => {

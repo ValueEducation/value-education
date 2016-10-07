@@ -2,11 +2,14 @@ package com.valueeducation;
 
 import android.app.Application;
 import android.util.Log;
+import com.inprogress.reactnativeyoutube.ReactNativeYouTube;
 import com.walmartreact.ReactOrientationListener.ReactOrientationListener;
-
+import com.idehub.GoogleAnalyticsBridge.GoogleAnalyticsBridgePackage;
 import com.imagepicker.ImagePickerPackage;
 import com.brentvatne.react.ReactVideoPackage;
 import com.facebook.react.ReactApplication;
+import com.cboy.rn.splashscreen.SplashScreenReactPackage;
+
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -25,11 +28,14 @@ public class MainApplication extends Application implements ReactApplication {
 
     @Override
     protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(
+      return Arrays.<ReactPackage>asList(      
           new MainReactPackage(),
           new ReactVideoPackage(),
           new ImagePickerPackage(),
-          new ReactOrientationListener()
+          new ReactOrientationListener(),
+          new GoogleAnalyticsBridgePackage(),
+          new ReactNativeYouTube(),
+          new SplashScreenReactPackage()
       );
     }
   };

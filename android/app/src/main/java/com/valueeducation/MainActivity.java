@@ -1,6 +1,11 @@
 package com.valueeducation;
 
+import android.os.Bundle;
 import com.facebook.react.ReactActivity;
+import com.cboy.rn.splashscreen.SplashScreen;
+
+import com.inprogress.reactnativeyoutube.ReactNativeYouTube;
+import com.idehub.GoogleAnalyticsBridge.GoogleAnalyticsBridgePackage;
 import com.walmartreact.ReactOrientationListener.ReactOrientationListener;
 import com.imagepicker.ImagePickerPackage;
 import com.brentvatne.react.ReactVideoPackage;
@@ -16,4 +21,11 @@ public class MainActivity extends ReactActivity {
     protected String getMainComponentName() {
         return "ValueEducation";
     }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        SplashScreen.show(this,true);
+        super.onCreate(savedInstanceState);
+    }
+
 }

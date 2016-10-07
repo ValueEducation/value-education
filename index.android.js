@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-'use strict';
-
 import React, { Component } from 'react'
 import {
   AppRegistry,
@@ -17,26 +10,46 @@ import {
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { Scene, Router } from 'react-native-router-flux'
-var Orientation = require('react-native-orientation-listener');
+var Orientation = require('react-native-orientation-listener')
+import SplashScreen from 'react-native-splash-screen'
+
 import Welcome from './components/welcome'
 import Login from './components/login'
 import Register from './components/register'
 import Home from './components/home'
-import Profile from './components/profile'
+import Profile from './components/profile/profile'
 import Settings from './components/settings'
 import Search from './components/search'
-import Notifications from './components/notifications'
-import Account from './components/account'
-import Frequency from './components/frequency'
-import ContentType from './components/contentType'
-import Aboutus from './components/aboutus'
+import Notifications from './components/settings/notifications'
+import Account from './components/settings/account'
+import Frequency from './components/settings/frequency'
+import ContentType from './components/settings/contentType'
+import Aboutus from './components/settings/aboutus'
 import styles from './utils/styles'
-import EditProfile from './components/editProfile'
+import EditProfile from './components/profile/editProfile'
+import VerifyPhoneNum from './components/mobileverification/verifyPhoneNum'
+import CodeVerify from './components/mobileverification/codeVerify'
+import ProfileInfo from './components/profile/profileInfo'
+import HomeScreen from './components/homeScreen'
+import Thought from './components/categories/thought'
+import Image from './components/categories/image'
+import Story from './components/categories/story'
+import Video from './components/categories/video'
+
 
 console.disableYellowBox = true
+
 BackAndroid.addEventListener('hardwareBackPress', function() {
   return false
 });
+
+class TabIcon extends Component {
+  render() {
+    return (
+      <Text>{this.props.title}</Text>
+    );
+  }
+}
 
 class ValueEducation extends Component {
   constructor(props) {
@@ -45,7 +58,8 @@ class ValueEducation extends Component {
     this.state = {
       logged: false,
       loading: true,
-    };
+    }
+   SplashScreen.hide()    
   }
   _setOrientation = (data) => {
     //alert(JSON.stringify(data))
@@ -56,31 +70,9 @@ class ValueEducation extends Component {
     const { height, width } = Dimensions.get('window')
   }
   componentDidMount = () => {
-    Orientation.getOrientation((orientation) => {
-   //   alert(JSON.stringify(orientation));
-    })
-    Orientation.addListener(this._setOrientation);
-    /*fetch('http://172.16.1.134:8990/api/Account/RegisterUser', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-        "email": "test23334@gmail.com",
-        "password": "Welcome@1234",
-        "name": "Test123334",
-        "phoneNumber": "1234211199",
-        "birthDate": "2016-08-06T17:55:00.000+0530"
-        })
-      }).then((response) => response.json())
-      .then((response) => {
-        alert(JSON.stringify(response));
-      })
-      .catch((error) => {
-      });*/
+   SplashScreen.hide()
     AsyncStorage.getItem('token')
-    .then( (value) =>{
+    .then( (value) => {
         if (value != null){
           this.setState({
             logged: true,
@@ -92,10 +84,7 @@ class ValueEducation extends Component {
           })
         }
       }
-    );
-  }
-  componentWillMount = () => {
-   
+    )
   }
 
   goTo = () => {
@@ -134,39 +123,44 @@ class ValueEducation extends Component {
        {/* <Schema name="modal" sceneConfig={Navigator.SceneConfigs.FloatFromBottom}/>
         <Schema name="default" sceneConfig={Navigator.SceneConfigs.FloatFromRight}/>*/}
         <Scene key="welcome" component={Welcome} title="Welcome" hideNavBar initial={!this.state.logged} />
-        <Scene key="login" component={Login} title="Login" hideNavBar={false} />
-        <Scene key="register" component={Register} title="Register" hideNavBar={false} />
+        {/*<Scene key="login" component={Login} title="Login" hideNavBar={false} />
+        <Scene key="register" component={Register} title="Register" hideNavBar={false} />*/}
+        <Scene key="verifyphone" component={VerifyPhoneNum} title="Verify your phone number" hideNavBar={false}/>
+        <Scene key="codeverify" component={CodeVerify} title="Verification Code" hideNavBar={false} />
+        <Scene key="profileinfo" component={ProfileInfo} title="Profile info" hideNavBar={false} type="reset"/>
+
         <Scene key="main" initial={this.state.logged}>
-          <Scene
-            key="home"
-            component={Home}
-            title="Home"
-            hideNavBar
-            type="reset"
-            renderRightButton={this.rightButton}
-            renderLeftButton={this.leftButton}
-          />
-          <Scene
-            key="profile"
-            component={Profile}
-            title="Profile"
-            hideNavBar={false}
-            direction="vertical"
-          />
-          <Scene
-            key="editprofile"
-            component={EditProfile}
-            title="Edit Profile"
-            hideNavBar={false}
-            direction="vertical"
-          />         
+         {/* <Scene key="root" tabs={true}>*/}
+            <Scene
+              key="homescreen"
+              component={HomeScreen}
+              title="Home"
+              hideNavBar
+              type="reset"
+            />
+            {/*<Scene
+              key="home"
+              component={Home}
+              title="Home"
+              hideNavBar
+              type="reset"
+              renderRightButton={this.rightButton}
+              renderLeftButton={this.leftButton}
+              icon={TabIcon}
+            />   */}         
+          <Scene key="profile" component={Profile} title="Profile" hideNavBar={false} />
+          <Scene key="editprofile" component={EditProfile} title="Edit Profile" hideNavBar={false} />
           <Scene key="settings" component={Settings} title="Settings" hideNavBar={false} />
-          <Scene key="notifications" component={Notifications} title="Notifications" hideNavBar={false} direction="vertical" />
-          <Scene key="account" component={Account} title="Account" hideNavBar={false} direction="vertical" />
-          <Scene key="frequency" component={Frequency} title="Frequency" hideNavBar={false} direction="vertical" />
-          <Scene key="contenttype" component={ContentType} title="ContentType" hideNavBar={false} direction="vertical" />
-          <Scene key="aboutus" component={Aboutus} title="About Us" hideNavBar={false} direction="vertical" />          
-          <Scene key="search" component={Search} title="Search" hideNavBar={false} direction="vertical" />
+          <Scene key="notifications" component={Notifications} title="Notifications" hideNavBar={false} />
+          <Scene key="account" component={Account} title="Account" hideNavBar={false} />
+          <Scene key="frequency" component={Frequency} title="Frequency" hideNavBar={false} />
+          <Scene key="contenttype" component={ContentType} title="Content type" hideNavBar={false} />
+          <Scene key="aboutus" component={Aboutus} title="About us" hideNavBar={false} />          
+          <Scene key="search" component={Search} title="Search" hideNavBar={false} />
+          <Scene key="thought" component={Thought} title="Thought of the day" hideNavBar={false} />
+          <Scene key="image" component={Image} title="Image of the day" hideNavBar={false} />
+          <Scene key="story" component={Story} title="Story of the day" hideNavBar={false} />
+          <Scene key="video" component={Video} title="Video of the day" hideNavBar={false} />       
         </Scene>
       </Router>
     )

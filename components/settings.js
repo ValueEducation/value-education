@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-'use strict';
-
 import React, { Component } from 'react'
 import {
   Text,
@@ -12,7 +5,12 @@ import {
   TouchableHighlight,
 } from 'react-native'
 import { Actions } from 'react-native-router-flux'
+import GoogleAnalytics from 'react-native-google-analytics-bridge'
 import styles from '../utils/styles'
+
+GoogleAnalytics.setTrackerId('UA-81365729-4')
+GoogleAnalytics.setDispatchInterval(10)
+GoogleAnalytics.trackScreenView('Settings')
 
 export default class Settings extends Component {
   Notification = () => {
@@ -32,7 +30,7 @@ export default class Settings extends Component {
   }
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.container4}>
 
         <TouchableHighlight
           underlayColor="transparent"
@@ -63,7 +61,7 @@ export default class Settings extends Component {
           onPress={this.ContentType}
           style={styles.button}
         >
-          <Text style={styles.textColor}>Content Type</Text>
+          <Text style={styles.textColor}>Content type</Text>
         </TouchableHighlight>
 
         <TouchableHighlight
@@ -71,7 +69,7 @@ export default class Settings extends Component {
           onPress={this.AboutUs}
           style={styles.button}
         >
-          <Text style={styles.textColor}>About Us</Text>
+          <Text style={styles.textColor}>About us</Text>
         </TouchableHighlight>
 
       </View>

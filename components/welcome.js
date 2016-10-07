@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-'use strict';
-
 import React, { Component } from 'react'
 import {
   Text,
@@ -13,17 +6,22 @@ import {
   TouchableHighlight,
 } from 'react-native'
 import { Actions } from 'react-native-router-flux'
-
+import GoogleAnalytics from 'react-native-google-analytics-bridge'
 import styles from '../utils/styles'
-import valueEducationLogo from '../images/ValueEdu.jpg'
+import valueEducationLogo from '../images/ValueEdu.png'
+
+/*GoogleAnalytics.setTrackerId('UA-81365729-4')
+GoogleAnalytics.setDispatchInterval(10)
+GoogleAnalytics.trackScreenView('Welcome')*/
 
 export default class Welcome extends Component {
   SignIn = () => {
-    Actions.login();
+  //  Actions.login();
+    Actions.verifyphone()
   }
-  Register = () => {
+/*  Register = () => {
     Actions.register();
-  }
+  }*/
   render() {
     return (
       <View style={styles.welcomeContainer}>
@@ -39,14 +37,14 @@ export default class Welcome extends Component {
           <TouchableHighlight
             underlayColor="transparent"
             onPress={this.SignIn}
-            style={styles.loginbutton}
+            style={[styles.loginbutton, { alignSelf: 'center' }]}
           >
             <Text style={styles.signin}>
               Sign In
             </Text>
           </TouchableHighlight>
         </View>
-        <View style={{ alignSelf: 'center' }}>
+{/*        <View style={{ alignSelf: 'center' }}>
           <Text style={styles.registertext}>
             Not a member?
           </Text>
@@ -59,7 +57,7 @@ export default class Welcome extends Component {
               Register
             </Text>
           </TouchableHighlight>
-        </View>
+        </View>*/}
       </View>
     );
   }

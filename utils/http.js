@@ -2,6 +2,7 @@ import { Alert } from 'react-native'
 import getServiceUrl from './config'
 
 const http = (endpoint, newData, method = 'POST', token = null) => {
+  // alert(JSON.stringify(newData))
   const url = getServiceUrl(endpoint)
   const data = {
     method,

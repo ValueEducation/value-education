@@ -35,6 +35,10 @@
 		F2CF67AB99C547F2B481F7B4 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7936EE64E3354A71BEDCE5BF /* libRNImagePicker.a */; };
 		8A01CAB5306E4F80A7EE5EAF /* libRCTOrientation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BED0E14C79435684D2D64F /* libRCTOrientation.a */; };
 		327DBFB2B6A64DC19B4A3E36 /* libRCTOrientationListener.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E6EE14581D149619F69C2E6 /* libRCTOrientationListener.a */; };
+		03EAC055176D41C6840555B9 /* libRCTGoogleAnalyticsBridge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2ACC7EE80414865BA7087FA /* libRCTGoogleAnalyticsBridge.a */; };
+		828F7EA7C484465D94F5A717 /* libRCTYouTube.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 240A98BC912E4F1FBC6EAD80 /* libRCTYouTube.a */; };
+		EB47AEE0B9E543129D9769F1 /* libRCTSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1552F3C5469C4D7780E93645 /* libRCTSplashScreen.a */; };
+		A35ED400C5AB42578D22ED9C /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBD0EF3C3C64484BF5D11CA /* libSplashScreen.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +161,14 @@
 		10BED0E14C79435684D2D64F /* libRCTOrientation.a */ = {isa = PBXFileReference; name = "libRCTOrientation.a"; path = "libRCTOrientation.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		2971145FA1D04B70BEDED402 /* RCTOrientationListener.xcodeproj */ = {isa = PBXFileReference; name = "RCTOrientationListener.xcodeproj"; path = "../node_modules/react-native-orientation-listener/RCTOrientationListener.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		5E6EE14581D149619F69C2E6 /* libRCTOrientationListener.a */ = {isa = PBXFileReference; name = "libRCTOrientationListener.a"; path = "libRCTOrientationListener.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		D2B7A3F952054A2987C51271 /* RCTGoogleAnalyticsBridge.xcodeproj */ = {isa = PBXFileReference; name = "RCTGoogleAnalyticsBridge.xcodeproj"; path = "../node_modules/react-native-google-analytics-bridge/ios/RCTGoogleAnalyticsBridge/RCTGoogleAnalyticsBridge.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		C2ACC7EE80414865BA7087FA /* libRCTGoogleAnalyticsBridge.a */ = {isa = PBXFileReference; name = "libRCTGoogleAnalyticsBridge.a"; path = "libRCTGoogleAnalyticsBridge.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		BFCD828CB8F74F49B5C53E2B /* RCTYouTube.xcodeproj */ = {isa = PBXFileReference; name = "RCTYouTube.xcodeproj"; path = "../node_modules/react-native-youtube/RCTYouTube.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		240A98BC912E4F1FBC6EAD80 /* libRCTYouTube.a */ = {isa = PBXFileReference; name = "libRCTYouTube.a"; path = "libRCTYouTube.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		33BB18987FE8480280B01DE4 /* RCTSplashScreen.xcodeproj */ = {isa = PBXFileReference; name = "RCTSplashScreen.xcodeproj"; path = "../node_modules/rn-splash-screen/ios/RCTSplashScreen.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		1552F3C5469C4D7780E93645 /* libRCTSplashScreen.a */ = {isa = PBXFileReference; name = "libRCTSplashScreen.a"; path = "libRCTSplashScreen.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		9E147A6D8B44412E9ABC2501 /* SplashScreen.xcodeproj */ = {isa = PBXFileReference; name = "SplashScreen.xcodeproj"; path = "../node_modules/react-native-splash-screen/ios/SplashScreen.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		5BBD0EF3C3C64484BF5D11CA /* libSplashScreen.a */ = {isa = PBXFileReference; name = "libSplashScreen.a"; path = "libSplashScreen.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +199,10 @@
 				F2CF67AB99C547F2B481F7B4 /* libRNImagePicker.a in Frameworks */,
 				8A01CAB5306E4F80A7EE5EAF /* libRCTOrientation.a in Frameworks */,
 				327DBFB2B6A64DC19B4A3E36 /* libRCTOrientationListener.a in Frameworks */,
+				03EAC055176D41C6840555B9 /* libRCTGoogleAnalyticsBridge.a in Frameworks */,
+				828F7EA7C484465D94F5A717 /* libRCTYouTube.a in Frameworks */,
+				EB47AEE0B9E543129D9769F1 /* libRCTSplashScreen.a in Frameworks */,
+				A35ED400C5AB42578D22ED9C /* libSplashScreen.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +330,10 @@
 				38B1ED30964A4058BA537BA9 /* RNImagePicker.xcodeproj */,
 				F3B5B65A25734867A85C4A48 /* RCTOrientation.xcodeproj */,
 				2971145FA1D04B70BEDED402 /* RCTOrientationListener.xcodeproj */,
+				D2B7A3F952054A2987C51271 /* RCTGoogleAnalyticsBridge.xcodeproj */,
+				BFCD828CB8F74F49B5C53E2B /* RCTYouTube.xcodeproj */,
+				33BB18987FE8480280B01DE4 /* RCTSplashScreen.xcodeproj */,
+				9E147A6D8B44412E9ABC2501 /* SplashScreen.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -658,6 +678,10 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
 			name = Debug;
@@ -674,6 +698,10 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ValueEducation.app/ValueEducation";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -697,6 +725,10 @@
 					"$(SRCROOT)\..\node_modules\react-native-image-picker\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation\iOS\RCTOrientation/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation-listener",
+					"$(SRCROOT)\..\node_modules\react-native-google-analytics-bridge\ios\RCTGoogleAnalyticsBridge/**",
+					"$(SRCROOT)\..\node_modules\react-native-youtube/**",
+					"$(SRCROOT)\..\node_modules\rn-splash-screen\ios\RCTSplashScreen/**",
+					"$(SRCROOT)\..\node_modules\react-native-splash-screen\ios",
 				);
 				INFOPLIST_FILE = "ValueEducation/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -722,6 +754,10 @@
 					"$(SRCROOT)\..\node_modules\react-native-image-picker\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation\iOS\RCTOrientation/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation-listener",
+					"$(SRCROOT)\..\node_modules\react-native-google-analytics-bridge\ios\RCTGoogleAnalyticsBridge/**",
+					"$(SRCROOT)\..\node_modules\react-native-youtube/**",
+					"$(SRCROOT)\..\node_modules\rn-splash-screen\ios\RCTSplashScreen/**",
+					"$(SRCROOT)\..\node_modules\react-native-splash-screen\ios",
 				);
 				INFOPLIST_FILE = "ValueEducation/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -777,6 +813,10 @@
 					"$(SRCROOT)\..\node_modules\react-native-image-picker\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation\iOS\RCTOrientation/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation-listener",
+					"$(SRCROOT)\..\node_modules\react-native-google-analytics-bridge\ios\RCTGoogleAnalyticsBridge/**",
+					"$(SRCROOT)\..\node_modules\react-native-youtube/**",
+					"$(SRCROOT)\..\node_modules\rn-splash-screen\ios\RCTSplashScreen/**",
+					"$(SRCROOT)\..\node_modules\react-native-splash-screen\ios",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -822,6 +862,10 @@
 					"$(SRCROOT)\..\node_modules\react-native-image-picker\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation\iOS\RCTOrientation/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation-listener",
+					"$(SRCROOT)\..\node_modules\react-native-google-analytics-bridge\ios\RCTGoogleAnalyticsBridge/**",
+					"$(SRCROOT)\..\node_modules\react-native-youtube/**",
+					"$(SRCROOT)\..\node_modules\rn-splash-screen\ios\RCTSplashScreen/**",
+					"$(SRCROOT)\..\node_modules\react-native-splash-screen\ios",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
